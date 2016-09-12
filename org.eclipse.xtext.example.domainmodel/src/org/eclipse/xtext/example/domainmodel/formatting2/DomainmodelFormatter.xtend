@@ -47,7 +47,7 @@ class DomainmodelFormatter extends XbaseFormatter {
 	def dispatch void format(Entity entity, extension IFormattableDocument document) {
 		val open = entity.regionFor.keyword("{")
 		val close = entity.regionFor.keyword("}")
-		entity.regionFor.feature(ABSTRACT_ELEMENT__NAME).surround[oneSpace]
+		entity.regionFor.feature(ABSTRACT_ELEMENT__NAME).surround[oneSpace].append[autowrap]
 		entity.superType.surround[oneSpace]
 		open.append[newLine]
 		interior(open, close)[indent]

@@ -83,4 +83,31 @@ class FormatterTest {
 			'''
 		]
 	}
+
+
+	/**
+ 	* Provoke the behavior described in https://github.com/eclipse/xtext-core/issues/97
+ 	*/
+	@Test def void Xtext_97() {
+		assertFormatted[
+			preferences[
+				put(FormatterPreferenceKeys.maxLineWidth, 20)
+			]
+			expectation = '''
+				entity Foo
+				{
+					op fooooooooooooooooooooooooooooooooooooooooooooooooooooo():String {
+						"xx"
+					}
+				}
+			'''
+			toBeFormatted = '''
+				entity Foo {
+					op fooooooooooooooooooooooooooooooooooooooooooooooooooooo():String {
+						"xx"
+					}
+				}
+			'''
+		]
+	}
 }
