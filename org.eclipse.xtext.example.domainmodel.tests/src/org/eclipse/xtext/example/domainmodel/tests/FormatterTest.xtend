@@ -94,8 +94,7 @@ class FormatterTest {
 				put(FormatterPreferenceKeys.maxLineWidth, 20)
 			]
 			expectation = '''
-				entity Foo
-				{
+				entity Foo {
 					op fooooooooooooooooooooooooooooooooooooooooooooooooooooo():String {
 						"xx"
 					}
